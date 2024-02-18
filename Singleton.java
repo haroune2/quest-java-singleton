@@ -1,10 +1,19 @@
+import java.util.Objects;
+
 public class Singleton {
 
     private static Singleton instance;
 
     // TODO 1 : fix singleton bad implementation
+    private Singleton() {
+        // Empêcher l'instanciation directe depuis l'extérieur
+    }
+    
     public static Singleton getInstance() {
-        return new Singleton();
+        if (Objects.isNull(instance)) {
+            instance = new Singleton();
+        }
+        return instance;
     }
 
     private Bank bank;
